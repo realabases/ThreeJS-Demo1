@@ -82,7 +82,7 @@ const sphere2Mesh = new THREE.Mesh(
 
 const cubeMesh = new THREE.Mesh(
     new THREE.BoxGeometry(1,1,1),
-    new THREE.MeshLambertMaterial({color: "red", wireframe:true})
+    new THREE.MeshBasicMaterial({color: "#9c0606", wireframe:true})
 )
 
 
@@ -98,7 +98,7 @@ cubeMesh.position.x = 3
 sphere2Mesh.position.x = -3
 
 //scene children
-light.position.set(2,2,2);
+light.position.set(2,3,2);
 scene.add(sphereMesh)
 scene.add(camera)
 scene.add(light)
