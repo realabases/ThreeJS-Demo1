@@ -104,12 +104,12 @@ const renderLoop= () => {
 renderLoop()
 
 
-pane.addBinding(torusMaterial, 'aoMapIntensity',
+pane.addBinding(sphere2Material, 'aoMapIntensity',
     {min: 0, max: 10, step: 0.3}
 )
-pane.addBinding(torusMaterial, 'roughness',
+pane.addBinding(sphere2Material, 'roughness',
     {min: 0, max: 1, step: 0.1}
 )
-pane.addBinding(torusMaterial, 'displacementScale',
+pane.addBinding(sphere2Material, 'displacementScale',
     {min: 0, max: 1, step: 0.1}
 )
