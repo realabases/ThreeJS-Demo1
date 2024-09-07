@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import {Pane} from 'tweakpane';
 
+const pane
 const canvas = document.querySelector("canvas.three")
 const h1 = document.querySelector("h1")
 
@@ -13,11 +14,22 @@ manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
 manager.onLoad = function ( ) {
     h1.remove()
 	canvas.style.display = "inline"
+    pane = new Pane({title: 'Brick Sphere'})
+    pane.addBinding(sphere2Material, 'aoMapIntensity',
+        {min: 0, max: 10, step: 0.3}
+    )
+    pane.addBinding(sphere2Material, 'roughness',
+        {min: 0, max: 1, step: 0.1}
+    )
+    pane.addBinding(sphere2Material, 'displacementScale',
+        {min: 0, max: 1, step: 0.1}
+    )
+    
 };
 
 manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-    h1.innerText += "..."
+    h1.innerText += ".."
     console.log(h1.textContent)
 };
 
@@ -30,7 +42,7 @@ const scene = new THREE.Scene()
 const textureloader = new THREE.TextureLoader(manager)
 const clock = new THREE.Clock()
 
-const pane = new Pane({title: 'Brick Sphere'})
+
 
 const material = new THREE.MeshStandardMaterial()
 const light = new THREE.PointLight( "white", 15, 100 );
@@ -128,12 +140,3 @@ const renderLoop= () => {
 renderLoop()
 
 
-pane.addBinding(sphere2Material, 'aoMapIntensity',
-    {min: 0, max: 10, step: 0.3}
-)
-pane.addBinding(sphere2Material, 'roughness',
-    {min: 0, max: 1, step: 0.1}
-)
-pane.addBinding(sphere2Material, 'displacementScale',
-    {min: 0, max: 1, step: 0.1}
-)
