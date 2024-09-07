@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import {Pane} from 'tweakpane';
 
-const pane
+let pane
 const canvas = document.querySelector("canvas.three")
 const h1 = document.querySelector("h1")
 
