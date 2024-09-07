@@ -2,8 +2,25 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import {Pane} from 'tweakpane';
 
+const manager = new THREE.LoadingManager();
+manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+};
+
+manager.onLoad = function ( ) {
+	console.log( 'Loading complete!');
+};
+
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+};
+
+manager.onError = function ( url ) {
+	console.log( 'There was an error loading ' + url );
+};
+
 const scene = new THREE.Scene()
-const textureloader = new THREE.TextureLoader()
+const textureloader = new THREE.TextureLoader(manager)
 const clock = new THREE.Clock()
 
 const pane = new Pane({title: 'Brick Sphere'})
