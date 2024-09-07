@@ -2,22 +2,29 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import {Pane} from 'tweakpane';
 
+const canvas = document.querySelector("canvas.three")
+const h1 = document.querySelector("h1")
+
 const manager = new THREE.LoadingManager();
 manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
 	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
 };
 
 manager.onLoad = function ( ) {
-	console.log( 'Loading complete!');
+    h1.remove()
+	canvas.style.display = "inline"
 };
 
 manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
 	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    h1.innerText += "..."
+    console.log(h1.textContent)
 };
 
 manager.onError = function ( url ) {
 	console.log( 'There was an error loading ' + url );
 };
+
 
 const scene = new THREE.Scene()
 const textureloader = new THREE.TextureLoader(manager)
@@ -87,7 +94,7 @@ scene.add(amLight)
 scene.add(sphere2Mesh)
 scene.add(cubeMesh)
 
-const canvas = document.querySelector("canvas.three")
+
 const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         antialias: true
