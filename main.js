@@ -1,6 +1,8 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import {Pane} from 'tweakpane';
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.168.0/three.module.min.js';
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { Pane } from 'https://cdn.jsdelivr.net/npm/tweakpane@4.0.4/dist/tweakpane.min.js';
+
+
 
 let pane
 const canvas = document.querySelector("canvas.three")
