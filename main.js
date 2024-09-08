@@ -79,6 +79,10 @@ const sphere2Mesh = new THREE.Mesh(
     sphere2Material
 )
 
+sphere2Material.aoMapIntensity = 2
+sphere2Material.roughness = 0.3
+sphere2Material.displacementScale = 0.5
+
 
 //cube Mesh
 
@@ -96,7 +100,7 @@ const camera = new THREE.PerspectiveCamera(
     40
 )
 camera.position.z = 5
-cubeMesh.position.x = 3
+cubeMesh.position.x = 2.7
 sphere2Mesh.position.x = -3
 
 //scene children
