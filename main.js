@@ -52,7 +52,7 @@ const amLight = new THREE.AmbientLight("white", 0.04)
 
 
 //Sphere
-const grassTexture = textureloader.load('./public/whispy-grass-meadow-bl/wispy-grass-meadow_albedo.png')
+const grassTexture = textureloader.load('whispy-grass-meadow-bl/wispy-grass-meadow_albedo.png')
 
 const sphereMesh = new THREE.Mesh(
     new THREE.SphereGeometry( 1, 32, 32),
@@ -60,16 +60,16 @@ const sphereMesh = new THREE.Mesh(
 )
 
 sphereMesh.material.map = grassTexture
-sphereMesh.material.normalMap = textureloader.load("./public/whispy-grass-meadow-bl/wispy-grass-meadow_normal-ogl.png")
+sphereMesh.material.normalMap = textureloader.load("whispy-grass-meadow-bl/wispy-grass-meadow_normal-ogl.png")
 
 //brickSphere
 
 const sphere2Material = new THREE.MeshStandardMaterial()
 
-sphere2Material.map = textureloader.load('./public/brick-wall-bl/brick-wall_albedo.png')
-sphere2Material.normalMap = textureloader.load('./public/brick-wall-bl/brick-wall_normal-ogl.png')
-sphere2Material.aoMap = textureloader.load('./public/brick-wall-bl/brick-wall_ao.png')
-sphere2Material.displacementMap = textureloader.load('./public/brick-wall-bl/brick-wall_height.png')
+sphere2Material.map = textureloader.load('brick-wall-bl/brick-wall_albedo.png')
+sphere2Material.normalMap = textureloader.load('brick-wall-bl/brick-wall_normal-ogl.png')
+sphere2Material.aoMap = textureloader.load('brick-wall-bl/brick-wall_ao.png')
+sphere2Material.displacementMap = textureloader.load('brick-wall-bl/brick-wall_height.png')
 
 sphere2Material.displacementScale = 0
 
